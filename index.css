@@ -1,5 +1,22 @@
-html, body {
-    margin: 0;
-    padding: 0;
+html,
+body {
+  margin: 0;
+  padding: 0;
 }
 
+.logo {
+  width: 250px;
+}
+.avatar {
+  border-radius: 50%;
+  width: 90px;
+}
+
+.heading {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  padding: 20px 20px;
+  border-bottom: solid 2px #c4c4c4;
+}
