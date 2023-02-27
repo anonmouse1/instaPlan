@@ -30,6 +30,19 @@ const posts = [
 ];
 //ref to post-container element
 const postContainer = document.getElementById("post-container");
+//setup icons container and content
+const iconsDiv = document.createElement("div");
+iconsDiv.setAttribute("class", "icons");
+const iconHeart = document.createElement("img");
+const iconDm = document.createElement("img");
+const iconComment = document.createElement("img");
+iconHeart.src = "images/icon-heart.png";
+iconDm.src = "images/icon-dm.png";
+iconComment.src = "images/icon-comment.png";
+
+iconsDiv.appendChild(iconHeart, iconComment, iconDm);
+iconsDiv.appendChild(iconComment);
+iconsDiv.appendChild(iconDm);
 
 //looping throught the posts array to display each post
 for (let i = 0; i < posts.length; i++) {
@@ -40,18 +53,23 @@ for (let i = 0; i < posts.length; i++) {
   //create elements for each data point for each post
   const posterInfoContainer = document.createElement("div");
   const avatarElement = document.createElement("img");
+  avatarElement.setAttribute("class", "avatar");
   const posterName = document.createElement("p");
+  posterName.setAttribute("class", "bold-text");
   const posterLocation = document.createElement("p");
-  const postContent = document.createElement("img");
+  const postImage = document.createElement("img");
+  postImage.setAttribute("class", "post-image");
   const likesCounter = document.createElement("p");
+  likesCounter.setAttribute("class", "bold-text");
   const posterUsername = document.createElement("p");
+  posterUsername.setAttribute("class", "bold-text");
   const comments = document.createElement("p");
   //populate each element with information for each poster
   avatarElement.src = posts[i].avatar;
   posterName.textContent = posts[i].name;
   posterLocation.textContent = posts[i].location;
-  postContent.src = posts[i].post;
-  likesCounter.textContent = posts[i].likes;
+  postImage.src = posts[i].post;
+  likesCounter.textContent = ` ${posts[i].likes} likes `;
   posterUsername.textContent = posts[i].username;
   comments.textContent = posts[i].comment;
 
@@ -59,7 +77,8 @@ for (let i = 0; i < posts.length; i++) {
   postElement.appendChild(avatarElement);
   postElement.appendChild(posterName);
   postElement.appendChild(posterLocation);
-  postElement.appendChild(postContent);
+  postElement.appendChild(postImage);
+  postElement.appendChild(iconsDiv);
   postElement.appendChild(likesCounter);
   postElement.appendChild(posterUsername);
   postElement.appendChild(comments);
