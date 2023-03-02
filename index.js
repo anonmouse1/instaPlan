@@ -47,7 +47,7 @@ for (let i = 0; i < posts.length; i++) {
   const postImage = document.createElement("img");
   postImage.setAttribute("class", "post-image");
   const likesCounter = document.createElement("p");
-  likesCounter.setAttribute("class", "bold-text");
+  likesCounter.setAttribute("class", "bold-text likes-counter");
   const posterUsername = document.createElement("p");
   posterUsername.setAttribute("class", "bold-text");
   const comments = document.createElement("p");
@@ -59,6 +59,15 @@ for (let i = 0; i < posts.length; i++) {
   likesCounter.textContent = ` ${posts[i].likes} likes `;
   posterUsername.textContent = posts[i].username;
   comments.textContent = posts[i].comment;
+
+  //create container for header elements
+  const headerContainer = document.createElement("div");
+  headerContainer.setAttribute("class", "header-container");
+  const headerNameLocationContainer = document.createElement("div");
+  headerContainer.appendChild(avatarElement);
+  headerContainer.appendChild(headerNameLocationContainer);
+  headerNameLocationContainer.appendChild(posterName);
+  headerNameLocationContainer.appendChild(posterLocation);
 
   //create iconsDiv element for this post element
   const iconsDiv = document.createElement("div");
@@ -73,16 +82,23 @@ for (let i = 0; i < posts.length; i++) {
   iconsDiv.appendChild(iconHeart, iconComment, iconDm);
   iconsDiv.appendChild(iconComment);
   iconsDiv.appendChild(iconDm);
+  //create a div for username and comments
+  const userCommentsContainer = document.createElement("div");
+  userCommentsContainer.setAttribute("class", "user-comments");
+  userCommentsContainer.appendChild(posterUsername);
+  userCommentsContainer.appendChild(comments);
 
   //append all of the newly created elements to the parent post element
-  postElement.appendChild(avatarElement);
-  postElement.appendChild(posterName);
-  postElement.appendChild(posterLocation);
+  //postElement.appendChild(avatarElement);
+  //postElement.appendChild(posterName);
+  //postElement.appendChild(posterLocation);
+  postElement.appendChild(headerContainer);
   postElement.appendChild(postImage);
   postElement.appendChild(iconsDiv);
   postElement.appendChild(likesCounter);
-  postElement.appendChild(posterUsername);
-  postElement.appendChild(comments);
+  //postElement.appendChild(posterUsername);
+  //postElement.appendChild(comments);
+  postElement.appendChild(userCommentsContainer);
 
   //now add the newly created post element to the parent post container
   postContainer.appendChild(postElement);
