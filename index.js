@@ -30,19 +30,6 @@ const posts = [
 ];
 //ref to post-container element
 const postContainer = document.getElementById("post-container");
-//setup icons container and content
-const iconsDiv = document.createElement("div");
-iconsDiv.setAttribute("class", "icons");
-const iconHeart = document.createElement("img");
-const iconDm = document.createElement("img");
-const iconComment = document.createElement("img");
-iconHeart.src = "images/icon-heart.png";
-iconDm.src = "images/icon-dm.png";
-iconComment.src = "images/icon-comment.png";
-
-iconsDiv.appendChild(iconHeart, iconComment, iconDm);
-iconsDiv.appendChild(iconComment);
-iconsDiv.appendChild(iconDm);
 
 //looping throught the posts array to display each post
 for (let i = 0; i < posts.length; i++) {
@@ -72,6 +59,20 @@ for (let i = 0; i < posts.length; i++) {
   likesCounter.textContent = ` ${posts[i].likes} likes `;
   posterUsername.textContent = posts[i].username;
   comments.textContent = posts[i].comment;
+
+  //create iconsDiv element for this post element
+  const iconsDiv = document.createElement("div");
+  iconsDiv.setAttribute("class", "icons");
+  const iconHeart = document.createElement("img");
+  const iconDm = document.createElement("img");
+  const iconComment = document.createElement("img");
+  iconHeart.src = "images/icon-heart.png";
+  iconDm.src = "images/icon-dm.png";
+  iconComment.src = "images/icon-comment.png";
+
+  iconsDiv.appendChild(iconHeart, iconComment, iconDm);
+  iconsDiv.appendChild(iconComment);
+  iconsDiv.appendChild(iconDm);
 
   //append all of the newly created elements to the parent post element
   postElement.appendChild(avatarElement);
