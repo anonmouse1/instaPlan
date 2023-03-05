@@ -73,8 +73,11 @@ for (let i = 0; i < posts.length; i++) {
   const iconsDiv = document.createElement("div");
   iconsDiv.setAttribute("class", "icons");
   const iconHeart = document.createElement("img");
+  iconHeart.setAttribute("id", "iconHeart");
   const iconDm = document.createElement("img");
+  iconDm.setAttribute("id", "iconDm");
   const iconComment = document.createElement("img");
+  iconComment.setAttribute("id", "iconComment");
   iconHeart.src = "images/icon-heart.png";
   iconDm.src = "images/icon-dm.png";
   iconComment.src = "images/icon-comment.png";
